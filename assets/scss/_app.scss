@@ -1,0 +1,182 @@
+* {margin: 0;padding: 0;}
+
+// GRID ROW
+ul.grid-row {
+	list-style: none;
+	position: relative;
+	user-select: none; 
+	margin: 0;
+	& > li.hex{
+		display: inline-block;
+		position: relative;
+		list-style: none;
+		background-color: orange;
+		background-size: cover;
+		cursor: pointer;
+		-webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+		clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+		&:hover {
+			background-image: none !important;
+		}
+		&.hex.selected {
+			background-blend-mode: color-burn;
+		}
+		span {
+			position: absolute;
+			text-align: center;
+			width: 100%;
+			font-size: 10px;
+			font-weight: 600;
+			color: white;
+			text-shadow: 0 1px 0 black;
+			display: none;
+			z-index: 800;
+			&.index {
+				top: 8px;
+			}
+			&.alt {
+				bottom: 8px;
+			}
+		}
+		div.structure {
+			position: absolute;
+			margin: 0 auto;
+			content: '';
+			width: 100%;
+			height: 100%;
+			z-index: 100;
+			background-size: cover;
+		}
+	}
+	&.clone-row {
+		display: none;
+	}
+}
+
+// HEX SIZER. DEFAULT SIZE — 15
+div#grid-container[grid-length='15']{
+	ul.grid-row {
+		width: 920px;
+		&:nth-child(even){
+			top: -15px;
+			left: 30px;
+			margin-bottom: -30px;
+			width: 882px;
+		}
+		li.hex {
+			width: 55px;
+			height: 55px;
+		}
+	}
+}
+// LARGE HEXES
+div#grid-container[grid-length='7']{
+	ul.grid-row {
+		width: 920px;
+		&:nth-child(even){
+			top: -28px;
+			left: 54px;
+			margin-bottom: -56px;
+			width: 882px;
+		}
+		li.hex {
+			width: 105px;
+			height: 105px;
+		}
+	}
+}
+
+// HEX TEXTURIZE
+div#grid-container {
+	// !!!! DEFAULT MUST HAVE BETTER SELECTOR li.hex
+	li.hex {
+		// GROUND
+		background-image: url('../img/ground.jpg');
+		// WATER
+		&[surface-type='water'] {
+			background-image: url('../img/water.jpg');
+		}
+		// CONCRETE
+		&[surface-type='concrete'] {
+			background-image: url('../img/concrete.jpg');
+		}
+		// SWAMP
+		&[surface-type='swamp'] {
+			background-image: url('../img/swamp.jpg');
+		}
+		// STRUCTURES
+		& > div.structure {
+			// ROCK
+			&[data-type="rock"] {
+				background-image: url('../img/rock.png');
+			}
+			// WOOD SM
+			&[data-type="wood-sm"] {
+				background-image: url('../img/wood-sm.png');
+			}
+			// WOOD LG
+			&[data-type="wood-lg"] {
+				background-image: url('../img/wood-lg.png');
+			}
+			// STRUCTURE SM
+			&[data-type="structure-sm"] {
+				background-image: url('../img/structure-sm.png');
+			}
+		}
+	}
+	// STEPE
+	&[climate-type='steppe']{
+		.hex {
+			// GROUND
+			background-image: url('../img/ground.jpg');
+		}
+	}
+	// DESERT
+	&[climate-type='desert']{
+		.hex {
+			// GROUND
+			background-image: url('../img/sand.jpg');
+		}
+	}
+	// DUST
+	&[climate-type='dustball']{
+		.hex {
+			// GROUND
+			background-image: url('../img/dust.jpg');
+		}
+	}
+	// ICEWORLD
+	&[climate-type='iceworld']{
+		.hex {
+			// GROUND
+			background-image: url('../img/snow.jpg');
+			// WATER
+			&[surface-type='water'] {
+				background-image: url('../img/water-ice.jpg');
+			}
+			// CONCRETE
+			&[surface-type='concrete'] {
+				background-image: url('../img/concrete-ice.jpg');
+			}
+		}
+	}
+	// LUNA
+	&[climate-type='lunar']{
+		.hex {
+			// GROUND
+			background-image: url('../img/lunar.jpg');
+		}
+	}
+	// MAGMA
+	&[climate-type='magma']{
+		.hex {
+			// GROUND
+			background-image: url('../img/magma.jpg');
+			// WATER
+			&[surface-type='water'] {
+				background-image: url('../img/water-magma.jpg');
+			}
+		}
+	}
+}
+

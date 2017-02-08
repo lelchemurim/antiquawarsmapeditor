@@ -1,0 +1,27 @@
+// UI
+$main: #4CAF50;
+$linkblue: #2196F3;
+$main-bg: rgb(34, 34, 34);
+
+$primary: #428BCA;
+$danger: #D9534F;
+$warning: #F0AD4E;
+$info: #5BC0DE;
+$success: #5CB85C;
+
+// 50 shades of Gray
+$invisible-gray: #F5F5F5;
+$lightgray: #E0E0E0;
+$mutedgray: #BDBDBD;
+$mediumgray: #ADADAD;
+$regulargray: #757575;
+$darkgray: #424242;
+
+// element colors
+.text-primary {color: $primary; } 
+.text-danger {color: $danger; } 
+.text-warning {color: $warning; } 
+.text-info {color: $info; } 
+.text-success {color: $success; } 
+.text-black {color: black; }
+.text-white{color: white}

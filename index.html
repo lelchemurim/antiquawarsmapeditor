@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/node_modules/material-design-icons/iconfont/material-icons.css">
+</head>
+<body>
+	<aside>
+		<div class="col-sm-12">
+			<h2>Инструменты</h2>
+			<hr>
+			<label class="toolbar-title"><i class="material-icons">language</i>Выбор биома</label>				
+			<select name="climate" id="climate-switcher" class="form-control input-sm">
+				<option value="steppe">Лесостепь</option>
+				<option value="desert">Пустыня</option>
+				<option value="dustball">Пустоши</option>
+				<option value="iceworld">Ледяной мир</option>
+				<option value="lunar">Лунный грунт</option>
+				<option value="magma">Активный вулканизм</option>
+			</select>
+
+			<hr>
+			<label class="toolbar-title"><i class="material-icons">brush</i>Тераформинг</label>
+			<a onclick="cleanTexture()" class="clear">Очистить</a>
+			<br>
+			<button type="button" class="btn btn-xs btn-default terraforming" data-value='water'>Вода</button>
+			<button type="button" class="btn btn-xs btn-default terraforming" data-value='concrete'>Бетон</button>
+			<button type="button" class="btn btn-xs btn-default terraforming" data-value='swamp'>Болото</button>
+
+			<hr>
+			<label class="toolbar-title"><i class="material-icons">extension</i>Структуры</label>
+			<a class="clear" onclick="cleanAreaHex()">Очистить</a>
+			<br>
+			<button type="button" class="btn btn-xs btn-default structure" data-value='rock'>Камень</button>
+			<button type="button" class="btn btn-xs btn-default structure" data-value='wood-sm'>Роща</button>
+			<button type="button" class="btn btn-xs btn-default structure" data-value='wood-lg'>Лес</button>			
+			<button type="button" class="btn btn-xs btn-default structure" data-value='structure-sm'>Постройка</button>
+
+
+			<hr>
+			<label class="toolbar-title"><i class="material-icons">settings</i>Инструменты</label>
+			<br>
+			<button type="button" class="btn btn-xs btn-success" onclick="cloneRow()"><i class="material-icons">add_circle</i>Добавить ряд</button>
+			<button type="button" class="btn btn-xs btn-danger" onclick="deleteRow()"><i class="material-icons">remove_circle</i>Удалить ряд</button>
+			<button type="button" class="btn btn-xs btn-warning" onclick="resetSelect()"><i class="material-icons">clear</i>Сброс</button>
+
+			<hr>
+			<label for="" class="toolbar-title"><i class="material-icons">remove_red_eye</i>Вид</label>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" name='index'> Показывать номер ячейки
+				</label>
+			</div>			
+			<div class="checkbox">
+				<label >
+					<input type="checkbox" name='alt'> Показывать высоту
+				</label>
+			</div>
+
+		</div>
+	</aside>
+
+	<div class="content-wrapper">
+			<div id="grid-container" grid-length='15' climate-type='steppe'>
+			</div>	
+			<ul class="grid-row clone-row">
+				<!-- ul.grid-row>li.hex*15>span.index+span.alt[data-alt='0'] -->
+				<li class="hex"><span class="index"></span><span class="alt" data-alt='0'></span></li>
+				<li class="hex"><span class="index"></span><span class="alt" data-alt='0'></span></li>
+				<li class="hex"><span class="index"></span><span class="alt" data-alt='0'></span></li>
+				<li class="hex"><span class="index"></span><span class="alt" data-alt='0'></span></li>
+				<li class="hex"><span class="index"></span><span class="alt" data-alt='0'></span></li>
+				<li class="hex"><span class="index"></span><span class="alt" data-alt='0'></span></li>
+				<li class="hex"><span class="index"></span><span class="alt" data-alt='0'></span></li>
+				<li class="hex"><span class="index"></span><span class="alt" data-alt='0'></span></li>
+				<li class="hex"><span class="index"></span><span class="alt" data-alt='0'></span></li>
+				<li class="hex"><span class="index"></span><span class="alt" data-alt='0'></span></li>
+				<li class="hex"><span class="index"></span><span class="alt" data-alt='0'></span></li>
+				<li class="hex"><span class="index"></span><span class="alt" data-alt='0'></span></li>
+				<li class="hex"><span class="index"></span><span class="alt" data-alt='0'></span></li>
+				<li class="hex"><span class="index"></span><span class="alt" data-alt='0'></span></li>
+				<li class="hex"><span class="index"></span><span class="alt" data-alt='0'></span></li>
+			</ul>	
+	</div>
+	<!-- scripts -->
+	<script src='assets/node_modules/jquery/dist/jquery.min.js'></script>
+	<script src='assets/node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
+	<script src='assets/js/main.js'></script>
+</body>
+</html>

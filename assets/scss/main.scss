@@ -1,0 +1,55 @@
+@import 'app';
+@import 'colors';
+
+//var
+$asidewidth: 280px;
+
+// layout
+aside {
+	height: 100vh;
+	width: $asidewidth;
+	position: fixed;
+	background-color: $main-bg;
+	color: white;
+	hr {
+		opacity: .2;
+		margin-right: -15px;
+		margin-left: -15px;
+	}
+	label.toolbar-title {
+		margin-bottom: 15px;
+		i {
+			font-size: 20px;
+			float: left;
+			margin-right: 5px;
+		}
+	}
+	a.clear {
+		float: right;
+		cursor: pointer;
+		color: $info;
+		&:hover {
+			text-decoration: none;
+			color: lighten($info, 15)
+		}
+	}
+	.btn {
+		margin-bottom: 5px;
+		i {
+			font-size: 13px;
+			margin-top: 2px;
+			margin-right: 3px;
+			float: left;
+		}
+	}
+}
+
+div.content-wrapper {
+	padding-left: $asidewidth + 30px;
+	background-color: #f0f0f0;
+    height: 100%;
+    #grid-container {
+    	min-height: 100vh;
+    	padding: 15px 0;
+    }
+}
